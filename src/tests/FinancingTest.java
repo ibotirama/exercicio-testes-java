@@ -14,6 +14,9 @@ class FinancingTest {
 	void shouldCreateTheObjectWhenDataIsValid() {
 		Financing financing = new Financing(100000.0, 3500.0, 48);
 		assertNotNull(financing);
+		assertEquals(100000.0, financing.getTotalAmount());
+		assertEquals(3500.0, financing.getIncome());
+		assertEquals(48, financing.getMonths());
 	}
 
 	@Test
@@ -45,6 +48,7 @@ class FinancingTest {
 		assertThrows(IllegalArgumentException.class, executable);
 	}
 	
+	@Test
 	void setIncomeShouldUpdateDataWhenItIsValid() {
 		Financing financing = new Financing(100000.0, 3500.0, 48);
 		double newValue = 4000.0;
@@ -64,6 +68,7 @@ class FinancingTest {
 		assertThrows(IllegalArgumentException.class, executable);
 	}
 	
+	@Test
 	void setMonthsUpdateDataWhenItIsValid() {
 		Financing financing = new Financing(100000.0, 3500.0, 48);
 		int newValue = 50;
